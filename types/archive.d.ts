@@ -1,13 +1,16 @@
-import JSZip = require('jszip');
+import jszip = require('jszip');
 
 export default class Archive {
   constructor();
 
-  open(input: BinaryType, isBase64?: boolean): Promise<JSZip>;
+  open(input: BinaryType, isBase64?: boolean): Promise<jszip>;
 
-  openUrl(zipUrl: string, isBase64?: boolean): Promise<JSZip>;
+  openUrl(zipUrl: string, isBase64?: boolean): Promise<jszip>;
 
-	request(url: string, type?: string): Promise<Blob | string | JSON | Document | XMLDocument>;
+  request(
+    url: string,
+    type?: string
+  ): Promise<Blob | string | JSON | Document | XMLDocument>;
 
   getBlob(url: string, mimeType?: string): Promise<Blob>;
 
@@ -23,5 +26,8 @@ export default class Archive {
 
   private checkRequirements(): void;
 
-  private handleResponse(response: any, type?: string): Blob | string | JSON | Document | XMLDocument;
+  private handleResponse(
+    response: any,
+    type?: string
+  ): Blob | string | JSON | Document | XMLDocument;
 }
